@@ -1,21 +1,20 @@
-# 🚀 Application de Gestion de Commandes
+# Application de Gestion de Commandes
 
 API REST pour la gestion de commandes clients développée avec Spring Boot.
 
-## 📋 Prérequis
+## Prérequis
 
 - Java 21
 - Maven 3.8+
 - MySQL 8.0+
-- IntelliJ IDEA (recommandé) ou tout autre IDE Java
+- IntelliJ IDEA 
 
-## 🔧 Configuration
+## Configuration
 
 ### 1. Créer les bases de données
 ```sql
 CREATE DATABASE commandes_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE DATABASE commandes_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE DATABASE commandes_prod CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 ```
 
 ### 2. Définir les variables d'environnement
@@ -30,7 +29,7 @@ $env:DB_PASSWORD=""
 $env:SERVER_PORT="8080"
 ```
 
-## 📚 Documentation API (Swagger)
+##  Documentation API (Swagger)
 
 Une fois l'application démarrée, accédez à la documentation interactive :
 ```
@@ -42,7 +41,7 @@ Ou accédez directement aux spécifications OpenAPI :
 http://localhost:8080/api-docs
 ```
 
-## 🧪 Exemples d'appels API
+## Exemples d'appels API
 
 ### 1. Créer un client
 ```http
@@ -173,52 +172,44 @@ GET http://localhost:8080/api/produits/stock-faible?seuil=10
 PUT http://localhost:8080/api/commandes/1/annuler
 ```
 
-## 🎯 Fonctionnalités
+##  Fonctionnalités
 
-### ✅ Gestion des Clients
+### Gestion des Clients
 - Créer, modifier, supprimer un client
 - Rechercher par ID ou email
 - Lister tous les clients
 
-### ✅ Gestion des Produits
+### Gestion des Produits
 - CRUD complet
 - Rechercher les produits disponibles (stock > 0)
 - Alertes stock faible
 
-### ✅ Gestion des Commandes
+### Gestion des Commandes
 - Créer une commande avec validation du stock
 - Calcul automatique du montant total
 - Valider une commande (mise à jour du stock)
 - Annuler une commande (remise du stock)
 - Rechercher par client, statut ou période
 
-### ✅ Règles Métier Implémentées
-1. ❌ **Interdiction de commander si stock insuffisant**
-2. 💰 **Calcul automatique du total de la commande**
-3. 📦 **Mise à jour du stock après validation**
+### Règles Métier Implémentées
+1.  **Interdiction de commander si stock insuffisant**
+2.  **Calcul automatique du total de la commande**
+3.  **Mise à jour du stock après validation**
 
-## 📊 Architecture
+## Architecture
 ```
 com.polytech.commandes
-├── entity/           # Entités JPA (SANS relations)
-├── repository/       # Couche d'accès aux données
+├── entity/          # Entités JPA (SANS relations)
+├── repository/      # Couche d'accès aux données
 ├── dto/             # Objets de transfert de données
 ├── service/         # Logique métier
 │   └── impl/        # Implémentations
 ├── controller/      # Contrôleurs REST
 ├── exception/       # Gestion des exceptions
 └── config/          # Configuration
-```
 
-## 🔐 Profils Spring
 
-| Profil | Usage | Base de données | Initialisation données | DDL-Auto |
-|--------|-------|-----------------|------------------------|----------|
-| **dev** | Développement local | commandes_dev | ✅ Oui (3 clients, 5 produits, 3 commandes) | create-drop |
-| **test** | Tests automatisés | commandes_test | ❌ Non | create-drop |
-| **prod** | Production | commandes_prod | ❌ Non | validate |
-
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 - **Spring Boot 3.2.2**
 - **Spring Data JPA** (sans relations JPA)

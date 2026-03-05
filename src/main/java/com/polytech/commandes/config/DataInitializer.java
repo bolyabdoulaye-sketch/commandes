@@ -20,7 +20,8 @@ import java.util.List;
 @Profile("dev")  // ACTIF UNIQUEMENT SUR LE PROFIL DEV
 @RequiredArgsConstructor
 @Slf4j
-public class DataInitializer implements CommandLineRunner {
+public class
+ DataInitializer implements CommandLineRunner {
 
     private final ClientService clientService;
     private final ProduitService produitService;

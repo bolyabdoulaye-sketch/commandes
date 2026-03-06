@@ -11,6 +11,10 @@ spring:
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  jwt:
+    secret: ${JWT_SECRET:cle_secrete_polytech_commandes_2024_tres_longue}
+    expiration: ${JWT_EXPIRATION:86400000}
+
   jpa:
     hibernate:
       ddl-auto: update

@@ -103,7 +103,7 @@ Content-Type: application/json
 
 {
   "username": "abdoulaye",
-  "password": "monmotdepasse"
+  "password": "passer"
 }
 ```
 
@@ -121,8 +121,8 @@ POST /api/auth/login
 Content-Type: application/json
 
 {
-  "username": "boly",
-  "password": "passer123"
+  "username": "abdoulaye",
+  "password": "passer"
 }
 ```
 
